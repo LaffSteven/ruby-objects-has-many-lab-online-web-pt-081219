@@ -8,20 +8,20 @@ class Author
   end
 
   def posts
-    Post.all.each do |i|
-      if i.author == self
-        @posts.push(i)
+    Post.all.each do |post|
+      if post.author == self
+        @posts.push(post)
       end
     end
   end
 
-  def add_post(postObject)
-    postObject.author = self
+  def add_post(new_post)
+    new_post.author = self
   end
 
-  def add_post_by_title(newPostTitle)
-    newPostObject = Post.new(newPostTitle)
-    newPostObject.author = self
+  def add_post_by_title(new_post_title)
+    new_post = Post.new(new_post_title)
+    new_post.author = self
   end
 
   def self.post_count
