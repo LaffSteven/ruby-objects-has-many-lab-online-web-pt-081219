@@ -14,21 +14,21 @@ class Artist
   end
 
   def songs
-    Song.all.each {|i| @songs.push(i) if i.artist == self}
+    Song.all.each {|s| @songs.push(s) if s.artist == self}
     @songs
   end
 
-  def add_song(songObject)
-    @songs << songObject
-    @@allSongs << songObject
-    songObject.artist = self
+  def add_song(song)
+    @songs << song
+    @@allSongs << song
+    song.artist = self
   end
 
-  def add_song_by_name(songNameString)
-    newSongObject = Song.new(songNameString)
-    @songs << newSongObject
-    @@allSongs << newSongObject
-    newSongObject.artist = self
+  def add_song_by_name(song_name)
+    new_song = Song.new(song_name)
+    @songs << new_song
+    @@allSongs << new_song
+    new_song.artist = self
   end
 
   def self.song_count
