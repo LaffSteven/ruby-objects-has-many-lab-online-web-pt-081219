@@ -14,8 +14,7 @@ class Artist
   end
 
   def songs
-    Song.all.each {|s| @songs.push(s) if s.artist == self}
-    @songs
+    Song.all.select {|song| song.artist == self}
   end
 
   def add_song(song)
